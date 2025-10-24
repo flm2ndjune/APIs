@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "2ab05f34-b7ab-4ca4-aa3a-c4c5697e918e",
+		"name": "REST_API_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49360824",
+		"_collection_link": "https://flm2ndjune-7068779.postman.co/workspace/FLM2ndJuneWS~da2f2b1f-016c-4a2d-855a-df685623b253/collection/49360824-2ab05f34-b7ab-4ca4-aa3a-c4c5697e918e?action=share&source=collection_link&creator=49360824"
+	},
+	"item": [
+		{
+			"name": "POSITIVE TC",
+			"item": [
+				{
+					"name": "LIST Users API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// RESPONSE CODE TESTING \r",
+									"pm.test(\"Verify if response code is =  200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//response time testing \r",
+									"\r",
+									"pm.test(\"Verify if response time < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"//RESPONSE body Testing \r",
+									"\r",
+									"pm.test(\"Verify if response body is recieved\", function () {\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// RESPONSE BODY IS in JSON FORMAT\r",
+									"pm.test(\"Verify if response body is in JSON format\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body contains fields such as id,name,email,gender and status\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"email\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"gender\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"status\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5968dcc472361380ed8587436d7934523708c1c9bd1320348e2aa93fbd4a035a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ACCESS-TOKEN"
+							}
+						],
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							]
+						},
+						"description": "Generated from cURL: curl -i -H \"Accept:application/json\" -H \"Content-Type:application/json\" -H \"Authorization: Bearer ACCESS-TOKEN\" -XGET \"https://gorest.co.in/public/v2/users\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE USER API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// /Verify if Content-Type json\r",
+									"pm.test(\"Content-Type is json\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\")\r",
+									"});\r",
+									"\r",
+									"//Verify if response code 201\r",
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"        pm.response.to.have.status(\"Created\");\r",
+									"\r",
+									"});\r",
+									"\r",
+									"//verify if response time < 2000ms\r",
+									"pm.test(\"verify if response time < 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"//verify if server was cloudflare\r",
+									"pm.test(\"Verify if server is Cloudflare\", function () {\r",
+									"    pm.response.to.have.header(\"Server\",\"cloudflare\");\r",
+									"});\r",
+									"\r",
+									"var extractedResponse = pm.response.json();  //local variable  \r",
+									"\r",
+									"var extractedId=extractedResponse.id;\r",
+									"\r",
+									"pm.globals.set(\"globalExtractedId\", extractedId);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5968dcc472361380ed8587436d7934523708c1c9bd1320348e2aa93fbd4a035a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ACCESS-TOKEN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomNamePrefix}} {{$randomFirstName}} {{$randomLastName}}\",\r\n    \"gender\": \"male\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users"
+							]
+						},
+						"description": "Generated from cURL: curl -i -H \"Accept:application/json\" -H \"Content-Type:application/json\" -H \"Authorization: Bearer ACCESS-TOKEN\" -XPOST \"https://gorest.co.in/public/v2/users\" -d '{\"name\":\"Tenali Ramakrishna\", \"gender\":\"male\", \"email\":\"tenali.ramakrishna@15ce.com\", \"status\":\"active\"}'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Verify if Content-Type json\r",
+									"pm.test(\"Content-Type is json\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\")\r",
+									" });\r",
+									"\r",
+									" //Verify if response code 200\r",
+									"\r",
+									"pm.test(\"Verify if response code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"     pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"//verify if response time < 200ms\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.response.to.have.responseTime.below(2000);\r",
+									"});\r",
+									"\r",
+									"//Verify if updated fields reflecting\r",
+									"pm.test(\"Verify if updated fields reflecting\", () => {\r",
+									"        var jsonData = pm.response.json();\r",
+									"     pm.expect(pm.response.json().status).to.eql(\"inactive\"); \r",
+									"     pm.expect(jsonData.id).to.eql(pm.globals.get(\"globalExtractedId\"));\r",
+									"\r",
+									"\r",
+									"});\r",
+									"\r",
+									"//verify if server was cloudflare\r",
+									"pm.test(\"Verify if server is Cloudflare\", function () {\r",
+									"    pm.response.to.have.header(\"Server\",\"cloudflare\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5968dcc472361380ed8587436d7934523708c1c9bd1320348e2aa93fbd4a035a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ACCESS-TOKEN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"status\": \"inactive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users/{{globalExtractedId}}",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users",
+								"{{globalExtractedId}}"
+							]
+						},
+						"description": "Generated from cURL: curl -i -H \"Accept:application/json\" -H \"Content-Type:application/json\" -H \"Authorization: Bearer ACCESS-TOKEN\" -XPATCH \"https://gorest.co.in/public/v2/users/7491715\" -d '{\"name\":\"Allasani Peddana\", \"email\":\"allasani.peddana@15ce.com\", \"status\":\"active\"}'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									" //Verify if response code 204\r",
+									"\r",
+									"pm.test(\"Verify if response code 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"     pm.response.to.have.status(\"No Content\");\r",
+									"});\r",
+									"\r",
+									"//verify if response time < 2000ms\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.response.to.have.responseTime.below(2000);\r",
+									"});\r",
+									"\r",
+									"//verify if server was cloudflare\r",
+									"pm.test(\"Verify if server is Cloudflare\", function () {\r",
+									"    pm.response.to.have.header(\"Server\",\"cloudflare\");\r",
+									"});\r",
+									"\r",
+									"//Verify if Body containes\r",
+									"pm.test(\"Verify if response body is empty\", function () {\r",
+									"   // pm.expect(pm.response.text()).to.equal(null);\r",
+									"    pm.response.to.have.jsonBody(null);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5968dcc472361380ed8587436d7934523708c1c9bd1320348e2aa93fbd4a035a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ACCESS-TOKEN"
+							}
+						],
+						"url": {
+							"raw": "https://gorest.co.in/public/v2/users/{{globalExtractedId}}",
+							"protocol": "https",
+							"host": [
+								"gorest",
+								"co",
+								"in"
+							],
+							"path": [
+								"public",
+								"v2",
+								"users",
+								"{{globalExtractedId}}"
+							]
+						},
+						"description": "Generated from cURL: curl -i -H \"Accept:application/json\" -H \"Content-Type:application/json\" -H \"Authorization: Bearer ACCESS-TOKEN\" -XDELETE \"https://gorest.co.in/public/v2/users/7491715\"\r\n\r\n"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

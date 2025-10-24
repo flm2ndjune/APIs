@@ -1,0 +1,5 @@
+name,gender,email,status,idToUpdate,statusToUpdate,emailToUpdate,idToDelete
+chandu,male,poi23122020@abc.com,active,8202142,inactive,abc24122020@abc.com,8202142
+aditya,male,lkj23122020@abc.com,active,8202141,inactive,xyz24122020@abc.com,8202141
+santosh,male,mnb23122020@abc.com,active,8202140,inactive,abc24122020@abc.com,8202140
+priya,female,asd23122020@abc.com,active,8202139,inactive,qwe24122020@abc.com,8202139
