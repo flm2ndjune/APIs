@@ -404,6 +404,78 @@ newman run REST_API_Project.postman_collection.json -r cli,extra-html
 newman run REST_API_Project.postman_collection.json -r cli,htmlextra --reporter-htmlextra-export Reports/report.html
 
 
+-----------------------------------------
+Day 9 - 27th October - Monday
+-----------------------------------------
+
+Project 3: 
+
+https://thinking-tester-contact-list.herokuapp.com/
+
+401
+Unauthorized
+
+{
+    "error": "Please authenticate."
+}
+
+wobirab239@haotuwu.com
+
+
+***********************************
+Rest Assured  
+***********************************
+
+Rest Assured is a Java DSL Lib 
+
+Open source 
+
+Rest APIs 
+
+https://github.com/rest-assured/rest-assured
+
+
+https://github.com/rest-assured/rest-assured/wiki/GettingStarted
+
+
+Features : 
+
+1. http methods : post,put,get,patch,delete etc ..
+2. integration with testing f/w : TestNG 
+3. inbuilt response validation
+4. support for xml and json: xmlpath and jsonpath 
+5. inbuilt logging : levels 
+6. support for BDD and non-BDD formats 
+7. Auths : basic, Bearer , api keys , oauth1,2 ,JWT 
+8. suuport headers : single/multiple headers , cookies 
+9. quesry/path paramters 
+10. Request/Response specifictaion, status code 
+11. integrate with any reporting tool : allure, chain test etc ..
+12. integrate with CI/CD tools jenkins , github actions etc ..
+13. Graph-QL : limited support 
+
+
+------------------------------------------------------------
+
+JAVA_HOME
+
+
+
+https://thinking-tester-contact-list.herokuapp.com/contacts
+
+import 3 types :
+
+import packagename.*;
+
+import packagename.ClassName;
+
+import static packagename.ClassName.*;
+
+import static java.lang.Math.*;
+
+https://github.com/flm5thdec/DataAndKeywordDrivenFramework
+
+
 
 
 
